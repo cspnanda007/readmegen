@@ -1,0 +1,52 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "readmegen"
+version = "1.0.0"
+description = "AI-powered README generator for any codebase"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.9"
+keywords = ["readme", "documentation", "ai", "cli", "generator", "openai", "anthropic", "gemini"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Documentation",
+    "Topic :: Software Development :: Documentation",
+]
+dependencies = [
+    "click>=8.0",
+    "openai>=1.0",
+    "google-genai>=1.47.0",
+    "anthropic>=0.18",
+    "rich>=13.0",
+    "pyyaml>=6.0",
+    "tiktoken>=0.5",
+    "gitpython>=3.1",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "pytest-cov", "ruff", "mypy"]
+
+[project.scripts]
+readmegen = "readmegen.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/yourname/readmegen"
+Documentation = "https://github.com/yourname/readmegen#readme"
+
+[tool.setuptools.packages.find]
+include = ["readmegen*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
