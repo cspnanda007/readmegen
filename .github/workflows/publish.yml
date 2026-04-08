@@ -11,7 +11,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     permissions:
-      # Required for Trusted Publishing (OIDC)
+      # MANDATORY for OIDC / Trusted Publishing
       id-token: write
 
     steps:
@@ -26,7 +26,7 @@ jobs:
       run: uv python install
 
     - name: Build package
-      # uv build creates both the .whl and .tar.gz in the dist/ folder
+      # This creates the dist/ folder with .whl and .tar.gz
       run: uv build
 
     - name: Publish package
